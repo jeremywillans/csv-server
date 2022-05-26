@@ -48,7 +48,6 @@ app.post('/', (req, res) => {
   }
 
   writer.pipe(fs.createWriteStream(filePath, { flags: 'a' }));
-  delete req.body.signature;
   writer.write(req.body);
 
   logger.debug('Saved to CSV!');
